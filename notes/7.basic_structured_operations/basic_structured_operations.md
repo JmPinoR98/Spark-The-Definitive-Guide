@@ -565,4 +565,10 @@ Spark maintains the state of the cluster in the driver. There are times when you
     collectDF.collect()
 ~~~
 
+There’s an additional way of collecting rows to the driver in order to iterate over the entire dataset. The method collects partitions to the driver as an iterator. toLocalIterator collects partitions to the driver as an iterator.
+
+~~~python
+    collectDF.toLocalIterator()
+~~~
+
 * ***Note:*** Any collection of data to the driver can be a very expensive operation! If you have a large dataset and call collect, you can crash the driver.
